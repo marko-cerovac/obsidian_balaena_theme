@@ -210,6 +210,7 @@
   --tab-divider-color: transparent;
   --tab-max-width: 200px;
   --tab-outline-color: transparent;
+  --tab-stacked-pane-width: 70%;
 
   /*Tags*/
   --tag-background: rgba(var(--rose-rgb), 0.1);
@@ -847,6 +848,10 @@ body:not(is-mobile):not(.show-ribbon) .workspace {
   padding: 0px;
   background-color: transparent;
 }
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container { /*Stacked tabs layout*/
+  background-color: var(--background-primary);
+  --tab-outline-color: var(--background-modifier-border);
+}
 /*vault switcher (v1.6) styling*/
 body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   border-radius: 8px;
@@ -884,6 +889,9 @@ input[type='text'], input[type='search'], input[type='email'], input[type='passw
 
 .menu-separator {
   border-bottom: 1px dashed var(--background-modifier-border);
+}
+.installed-plugins-container {
+  border-top: 1px dashed var(--background-modifier-border);
 }
 
 .file-embed {
@@ -1246,8 +1254,10 @@ body:not(.no-button) button {
 
 /*write*/
 .write p::first-letter {
-  font-size: 2em;
-  font-weight: bolder;
+  font-size: 1.8em;
+}
+.write p {
+  text-indent: 50px;
 }
 .write, .markdown-source-view.write .cm-scroller {
   font-family: var(--font-monospace);
