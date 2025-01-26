@@ -810,7 +810,7 @@
 }
 
 /*-------------LAYOUT------------------*/ /* remove for default layout*/
-.workspace-tab-container {
+body:not(is-mobile) .workspace-tab-container {
   margin: 7px 14px 14px 0px;
   border-radius: 12px;
 }
@@ -870,9 +870,13 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 }
 /*Mobile styling*/
 .mobile-navbar, .mobile-toolbar {
-  background-color: var(--overlay);
+  background-color: var(--uw-background);
   padding-bottom: 10px;
   padding-top: 0px;
+}
+.is-mobile .workspace-tab-container {
+  margin: 10px;
+  border-radius: 15px;
 }
 
 /*Panels titlebar styling*/
@@ -887,7 +891,7 @@ input[type='text'], input[type='search'], input[type='email'], input[type='passw
   border-radius: 30px;
 }
 
-.menu-separator {
+.menu-separator, .modal.mod-plugin-debug .startup-stat:not(:last-child) {
   border-bottom: 1px dashed var(--background-modifier-border);
 }
 .installed-plugins-container {
