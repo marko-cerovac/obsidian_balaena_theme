@@ -45,8 +45,8 @@
   --italic-color: var(--foam);
 
   /*---titlebar---*/
-  --titlebar-background: transparent;
-  --titlebar-background-focused: transparent;
+  --titlebar-background: transparent !important;
+  --titlebar-background-focused: transparent !important;
   --titlebar-border-width: 0px;
   
   /*---icons---*/
@@ -894,7 +894,7 @@ input[type='text'], input[type='search'], input[type='email'], input[type='passw
 .menu-separator, .modal.mod-plugin-debug .startup-stat:not(:last-child) {
   border-bottom: 1px dashed var(--background-modifier-border);
 }
-.installed-plugins-container {
+.installed-plugins-container, .community-modal-search-results-wrapper {
   border-top: 1px dashed var(--background-modifier-border);
 }
 
@@ -964,8 +964,8 @@ body:not(.no-justify) .cm-s-obsidian, body:not(.no-justify) .markdown-preview-vi
 .suggestion-highlight {
   color: var(--love);
 }
-body:not(.is-phone) div:has(>input.prompt-input) {
-  border-bottom: 2px solid var(--color-red);
+body:not(.is-phone) .prompt-results {
+  border-top: 2px solid var(--color-red);
 }
 .titlebar-button {
   border-radius: 0px 0px 18px 18px;
@@ -1499,7 +1499,7 @@ body {
 .empty-state-container:hover {
   transform:scale(1.03);
 }
-.empty-state-title, .empty-state-action:nth-child(3), .empty-state-action:nth-child(4) {
+.empty-state-title, .empty-state-action:nth-child(3), .empty-state-action.mod-close {
   display: none;
 }
 .empty-state-container {
@@ -1510,7 +1510,7 @@ body {
   padding: 0px 10px;
   border-radius: 7px;
 }
-.empty-state-action:nth-child(1) {
+.empty-state-action:nth-child(1), .empty-state-action:nth-child(2) {
   margin-bottom: 10px;
 }
 
