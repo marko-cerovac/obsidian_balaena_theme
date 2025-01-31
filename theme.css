@@ -1820,11 +1820,6 @@ body:not(.no-widgets) .Countdown_Item {
 	background-color: var(--overlay);
 }
 
-/*Note toolbar - fix*/
-.cg-note-toolbar-fab-container {
-  top: calc(var(--cg-nt-fab-pos-y-desktop) - 6em);
-}
-
 /*Support for https://github.com/HandaArchitect/obsidian-banner-snippet*/
 /*Remove hover image animation from the banner*/
 .banner :is(:is(.markdown-source-view.mod-cm6) :is(.cm-content, .cm-line), .markdown-rendered) :is(img, .external-embed, .internal-embed audio, .internal-embed video, .iframe-external-embed), .banner.banner-fade.markdown-preview-view img[alt='banner']:first-child, .banner.banner-fade.is-live-preview img[alt='banner']:first-child, .banner.markdown-preview-view img[alt='banner']:first-child, .banner.is-live-preview img[alt='banner']:first-child  {
