@@ -2,7 +2,9 @@
 ![Stars](https://img.shields.io/github/stars/Seniblue/Underwater?style=for-the-badge&color=c4a7e7&labelColor=26233a)
 ![Last update](https://img.shields.io/github/last-commit/Seniblue/Underwater?style=for-the-badge&color=ebbcba&labelColor=26233a)
 
-[✨ Theme updates](https://github.com/Seniblue/Underwater/releases)
+_[✨ Runner up in the Obsidian Gems of the Year 2024 awards!](https://obsidian.md/blog/2024-goty-winners/)_
+
+[↪️ Theme updates](https://github.com/Seniblue/Underwater/releases)
 
 ![uw](img/thumbnail.png)
 
