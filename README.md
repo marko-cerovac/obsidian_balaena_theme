@@ -2,7 +2,7 @@
 ![Stars](https://img.shields.io/github/stars/Seniblue/Underwater?style=for-the-badge&color=c4a7e7&labelColor=26233a)
 ![Last update](https://img.shields.io/github/last-commit/Seniblue/Underwater?style=for-the-badge&color=ebbcba&labelColor=26233a)
 
-_[✨ Runner up in the Obsidian Gems of the Year 2024 awards!](https://obsidian.md/blog/2024-goty-winners/)_
+_✨ Runner up in the Obsidian [Gems of the Year 2024](https://obsidian.md/blog/2024-goty-winners/) awards!_
 
 [↪️ Theme updates](https://github.com/Seniblue/Underwater/releases)
 
@@ -91,7 +91,7 @@ _[✨ Runner up in the Obsidian Gems of the Year 2024 awards!](https://obsidian.
 - [Cardboard](https://github.com/roovo/obsidian-card-board)
 
 # Credit
-Credit to these themes for certain elements and inspiration!
+Credit to these themes for some elements and inspiration!
 - [Border](https://github.com/Akifyss/obsidian-border) by [@Akifyss](https://github.com/Akifyss)
 - [AnuPpuccin](https://github.com/AnubisNekhet/AnuPpuccin) by [@Anubis](https://github.com/AnubisNekhet)
 - [Minimal](https://github.com/kepano/obsidian-minimal) by [@Kepano](https://github.com/kepano)
