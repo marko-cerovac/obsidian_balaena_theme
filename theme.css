@@ -906,6 +906,7 @@ input[type='text'], input[type='search'], input[type='email'], input[type='passw
 body:not(.no-justify) .cm-s-obsidian, body:not(.no-justify) .markdown-preview-view {
   text-align: justify;
 }
+
 .markdown-source-view ol > li, .markdown-source-view ul > li, .markdown-preview-view ol > li, .markdown-preview-view ul > li, .cm-line.HyperMD-list-line,
 .HyperMD-codeblock {
   text-align: start;
@@ -1172,11 +1173,17 @@ body:not(.no-links) .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-unde
   --callout-color: var(--color-yellow-rgb);
   --callout-icon: lucide-image;
 }
-[data-callout-metadata="center"] {
+[data-callout-metadata~="center"] {
   --callout-icon: none;
   & .callout-title {
     justify-content: center;
-  }}
+}}
+.callout[data-callout="box"] {
+  border: 1px var(--highlight-med) solid;
+  background-color: transparent;
+  & > .callout-title {
+    display: none;
+}}
 /*Default callouts*/
 .callout[data-callout="note"] {
   --callout-icon: lucide-sticker;
@@ -1227,6 +1234,9 @@ body:not(.no-h5) .HyperMD-header.HyperMD-header-5, body:not(.no-h5) h5 {
   padding-bottom: 4px !important;
   border-bottom: 2px solid var(--h1-color);
 }
+/* :is(h1,h2,h3,h4,h5,h6) {
+  text-align: start;
+} */
 .cm-s-obsidian .cm-inline-code:not(.cm-formatting), .cm-s-obsidian span.cm-inline-code, .markdown-source-view.mod-cm6.is-live-preview .cm-hashtag.cm-meta {
   font-size: var(--code-size) !important;
 }
@@ -1585,9 +1595,6 @@ body { /*moon*/
 /*========================================= PLUGINS SUPPORT ==============================================*/
 /*MAKE.MD*/
 /*hide vault title*/
-body:not(.no-mk) .mk-main-menu-container {
-  display: none;
-}
 body {
   --mk-ui-text-secondary: var(--text-normal);
 }
@@ -1619,8 +1626,7 @@ body {
 .kanban-plugin__lane {
   background-color: rgba(var(--foam-rgb), 0.25);
   border: 1px var(--pine);
-}
-/*cards styling*/
+}/*cards styling*/
 .kanban-plugin__item-title-wrapper {
   background-color: var(--surface);
   border-radius: 8px;
@@ -1651,52 +1657,51 @@ button.kanban-plugin__new-item-button {
   color: var(--text-muted);
 }
 /*2. Modern Kanban*/
-.kanban-modern .kanban-plugin__lane {
-  background-color: var(--background-primary) !important;
-}
-.kanban-modern .kanban-plugin__lane:hover {
-  outline: 1px solid var(--highlight-med);
-}
-.kanban-modern .kanban-plugin__item-title-wrapper {
-  background-color: var(--overlay);
-  border-radius: 10px;
-  border: 1px solid var(--highlight-high);
-  padding: 10px;
-  transition-duration: .3s;
-  transition-property: border-color, box-shadow, background-color;
-}
-.kanban-modern .kanban-plugin__item:has(.markdown-source-view), .kanban-plugin__item, .kanban-plugin__item-button-wrapper, .kanban-plugin__item-form /*fix*/ {
-  outline: none;
-  border: none;
-}
-.kanban-modern .kanban-plugin__item-title-wrapper:hover {
-  border: 1px solid var(--text-faint);
-  cursor: pointer;
-}
-.kanban-modern button.kanban-plugin__new-item-button {
-  background-color: transparent;
-  color: var(--text-faint);
-}
-.kanban-modern button.kanban-plugin__new-item-button:hover {
-  background-color: transparent;
-  color: var(--color-pink);
-}/*Remove active line highlight glitch*/
+.kanban-modern {
+  .kanban-plugin__lane {
+    background-color: var(--background-primary) !important;
+  }
+  .kanban-plugin__lane:hover {
+    outline: 1px solid var(--highlight-med);
+  }
+  .kanban-plugin__item-title-wrapper {
+    background-color: var(--overlay);
+    border-radius: 10px;
+    border: 1px solid var(--highlight-high);
+    padding: 10px;
+    transition-duration: .3s;
+    transition-property: border-color, box-shadow, background-color;
+  }
+  .kanban-plugin__item:has(.markdown-source-view), .kanban-plugin__item, .kanban-plugin__item-button-wrapper, .kanban-plugin__item-form /*fix*/ {
+    outline: none;
+    border: none;
+  }
+  .kanban-plugin__item-title-wrapper:hover {
+    border: 1px solid var(--text-faint);
+    cursor: pointer;
+  }
+  button.kanban-plugin__new-item-button {
+    background-color: transparent;
+    color: var(--text-faint);
+  }
+  button.kanban-plugin__new-item-button:hover {
+    background-color: transparent;
+    color: var(--color-pink);
+}}/*Remove active line highlight glitch*/
 .kanban-plugin .cm-active.cm-line {
   box-shadow: none !important;
 }
 
 /*POMODORO TIMER*/
-.theme-light {
-  --pomodoro-timer-dot-color: var(--love);
-  --pomodoro-timer-elapsed-color: var(--foam);
-  --pomodoro-timer-color: var(--text-selection);
-}
-.timer {
-  stroke-linecap: round;
-}
-.circle_timer {
-  stroke-width: 10px;
-}
+body:not(.no-pomodoro){
+    --pomodoro-timer-dot-color: var(--color-pink);
+    --pomodoro-timer-color: var(--text-selection);
+  .timer {
+    stroke-linecap: round;
+  }
+  .circle_timer {
+    stroke-width: 10px;
+}}
 
 /*CALENDAR*/
 body:not(.no-calendar) #calendar-container {
@@ -1705,111 +1710,109 @@ body:not(.no-calendar) #calendar-container {
 }
 
 /*WIDGETS plugin*/
-body:not(.no-widgets) .Clock_Divider {
-  height: 3px;
-  border-radius: 20px;
-  background: var(--iris);
-  margin: 10px 0px;
-}
-body:not(.no-widgets) .Clock_Face {
-  font-size: 3em;
-}
-body:not(.no-widgets) .Clock_Date {
-  color: var(--subtle);
-}
-body:not(.no-widgets) .Quote_Container {
-  padding: 20px;
-  text-align: center;
-  background: transparent;
-  border: 3px solid var(--foam);
-}
-body:not(.no-widgets) .Quote_Text {
-  font-family: var(--font-text-theme);
-}
-body:not(.no-widgets) .Countdown_Item {
-  border: 3px solid var(--gold);
-}
+body:not(.no-widgets) {
+  .Clock_Divider {
+    height: 2px;
+    border-radius: 20px;
+    background: var(--iris);
+    margin: 10px 0px;
+  }
+  .Clock_Face {
+    font-size: 3em;
+  }
+  .Clock_Date {
+    color: var(--subtle);
+  }
+  .Quote_Container {
+    padding: 20px;
+    background: transparent;
+    border: 2px solid var(--foam);
+  }
+  .Quote_Text {
+    font-family: var(--font-text-theme);
+  }
+  .Countdown_Item {
+    border: 2px solid var(--gold);
+}}
 
 /*TOKEI*/
-.time {
-  padding: 20px;
-  font-size: 3.2em;
-  text-shadow: none;
-  color: var(--pine);
-}
-.date {
-  font-size: 1.5em;
-  color: var(--rose);
-}
-.timezone-container {
-  padding: 15px;
-  gap: 15px;
-}
-.timezone-pair {
-  flex-direction: row;
-  border: 2px dotted var(--highlight-high);
-  background-color: transparent;
-  border-radius: 5px;
-}
-.timezone-name {
-  color: var(--subtle);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-.timezone-time {
-  color: var(--text-normal);
-}
+body:not(.no-tokei) {
+  .time {
+    padding: 20px;
+    font-size: 3.2em;
+    text-shadow: none;
+    color: var(--pine);
+  }
+  .date {
+    font-size: 1.5em;
+    color: var(--rose);
+  }
+  .timezone-container {
+    padding: 15px;
+    gap: 15px;
+  }
+  .timezone-pair {
+    flex-direction: row;
+    border: 2px dotted var(--highlight-high);
+    background-color: transparent;
+    border-radius: 5px;
+  }
+  .timezone-name {
+    color: var(--subtle);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .timezone-time {
+    color: var(--text-normal);
+}}
 
 /*File Tree Alternative*/
-.oz-folders-action-items, .oz-flex-container {
-  background-color: var(--text-selection);
-  border-radius: 8px;
-  margin: 5px 20px;
-  border: transparent;
-  --oz-fta-header-icon-colors: var(--text-normal);
-}
-.oz-folder-element {
-  line-height: 1.7em;
-  border-radius: 5px;
-}
-.oz-nav-file-title {
-  --oz-fta-file-font-size: 0.85em;
-  color: var(--text-normal);
-}
-.oz-nav-file {
-  border-radius: 5px;
-  padding: 0px 7px;
-}
-.oz-nav-file-icon {
-  color: var(--pine);
-  margin-right: 8px;
-}
+body:not(.no-fta) {
+  .oz-folders-action-items, .oz-flex-container {
+    background-color: var(--text-selection);
+    border-radius: 8px;
+    margin: 5px 20px;
+    border: transparent;
+    --oz-fta-header-icon-colors: var(--text-normal);
+  }
+  .oz-folder-element {
+    line-height: 1.7em;
+    border-radius: 5px;
+  }
+  .oz-nav-file-title {
+    --oz-fta-file-font-size: 0.85em;
+    color: var(--text-normal);
+  }
+  .oz-nav-file {
+    border-radius: 5px;
+    padding: 0px 7px;
+  }
+  .oz-nav-file-icon {
+    color: var(--pine);
+    margin-right: 8px;
+}}
 
 /*Todoist sync styling*/
-/*tasks description*/
-.todoist-task-container .todoist-task .todoist-task-metadata {
-  font-size: var(--font-smallest);
-}
-/*new/refresh buttons styling*/
-.todoist-query-header .todoist-query-controls .todoist-query-control-button {
-  border-radius: 50px;
-  background-color: var(--base);
-  &:hover {
-    border-color: var(--highlight-high);
-    color: var(--color-yellow);
-  }
-}
-.theme-dark, .theme-light {
+body:not(.no-todoist) {
   --todoist-task-separator-color: var(--background-modifier-border);
   --todoist-p4-border: var(--checkbox-border-color);
   --todoist-p4-border-hover: var(--checkbox-border-color-hover);
-}
-/*Sub-projects title styling*/
-.todoist-group-title {
-  color: var(--color-purple);
-  font-variant: small-caps;
-  font-size: var(--h3-size);
-}
+
+  .todoist-task-container .todoist-task .todoist-task-metadata {
+    font-size: var(--font-smallest);
+  }  /*new/refresh buttons styling*/
+  .todoist-query-header .todoist-query-controls .todoist-query-control-button {
+    border-radius: 50px;
+    background-color: var(--base);
+    &:hover {
+      border-color: var(--highlight-high);
+      color: var(--color-yellow);
+    }}  /*Sub-projects title styling*/
+  .todoist-group-title {
+    color: var(--color-purple);
+    font-variant: small-caps;
+    font-size: var(--h3-size);
+}}
 
 /*IMPORTANT - ICONIZE v.2.12.1 fix*/
 .iconize-inline-title-wrapper {
@@ -1843,18 +1846,21 @@ body:not(.no-widgets) .Countdown_Item {
 .excalidraw-embedded-img, .excalidraw-embedded-img:hover { /*disable animation on Excalidraw drawings*/
   transition: none;
   transform: none !important;
+}/*dotted background on drawings*/
+.dotted .excalidraw {
+  background-image: radial-gradient(var(--background-modifier-border) 1px, transparent 0);
+  background-size: 20px 20px;
+  background-position: -19px -19px;
 }
 
 /*Dataview*/
 .cm-html-embed thead tr > th, .markdown-rendered thead tr > th { /*Dataview calendar header*/
   color: var(--table-header-color);
-}
-/*dataview tables like markdown tables */
+}/*dataview tables like markdown tables */
 .seamless-dataview .dataview.table-view-table th, .seamless-dataview .dataview.table-view-table :is(td, th) {
   border: 1px solid var(--table-border-color);
   font-size: var(--font-text-size);
-}
-/*dataview inline fields*/
+}/*inline fields*/
 .dataview.inline-field-key {
   background-color: var(--base);
   color: var(--bold-color);
@@ -1879,44 +1885,45 @@ body:not(.no-widgets) .Countdown_Item {
 }
 
 /*Cardboard plugin*/
-.card-board-column {
-  background-color: var(--background-primary-alt);
-  border-radius: 8px;
-}
-.card-board-card {
-  border-radius: 8px;
-}
-.card-board-card-content-area {
-  text-align: start;
-}
-.workspace-leaf-content[data-type='card-board-view'] {
-  .workspace-tab-header-inner {
-    border-radius: 0;
+body:not(.no-cardboard) {
+  .card-board-column {
+    background-color: var(--background-primary-alt);
+    border-radius: 8px;
   }
-  .card-board-view .workspace-tab-header {
-    background-color: var(--overlay);
-    border-bottom: 3px solid var(--background-modifier-border);
-    border-radius: 0;
-    margin-left: 20px;
-      &.is-active  {
-        border-color: rgba(var(--color-purple-rgb), 0.5);
-        color: rgba(var(--color-purple-rgb), 0.5);
-      }
+  .card-board-card {
+    border-radius: 8px;
   }
-  .workspace-tab-header-inner-title {
-    text-align: center;
-  }    
-  .workspace-tab-header-container {
-    background-color: var(--overlay);
-    border: 1px solid var(--background-modifier-border);
-    border-radius: 100px;
-    margin: 5px 15px;
-    height: 35px;
+  .card-board-card-content-area {
+    text-align: start;
   }
-}
-.card-board-view .sidebar-toggle-button{
-  padding-top: 0;
-}
+  .workspace-leaf-content[data-type='card-board-view'] {
+    .workspace-tab-header-inner {
+      border-radius: 0;
+    }
+    .card-board-view .workspace-tab-header {
+      background-color: var(--overlay);
+      border-bottom: 3px solid var(--background-modifier-border);
+      border-radius: 0;
+      margin-left: 20px;
+        &.is-active  {
+          border-color: rgba(var(--color-purple-rgb), 0.5);
+          color: rgba(var(--color-purple-rgb), 0.5);
+        }
+    }
+    .workspace-tab-header-inner-title {
+      text-align: center;
+    }    
+    .workspace-tab-header-container {
+      background-color: var(--overlay);
+      border: 1px solid var(--background-modifier-border);
+      border-radius: 100px;
+      margin: 5px 15px;
+      height: 35px;
+    }
+  }
+  .card-board-view .sidebar-toggle-button{
+    padding-top: 0;
+}}
 
 /*STYLE SETTINGS*/
 .style-settings-info-text .style-settings-markdown {
@@ -2042,17 +2049,17 @@ body:not(.no-widgets) .Countdown_Item {
 }
 
 /*Alt callout styles*/
-.callout-solid, [data-callout-metadata="solid"], [data-callout="solid"] {
+.callout-solid, [data-callout-metadata~="solid"], [data-callout="solid"] {
   --callout-border-width: 2px 6px 6px 2px;
 }
-.callout-outlined, [data-callout-metadata="outlined"], [data-callout="outlined"] {
+.callout-outlined, [data-callout-metadata~="outlined"], [data-callout="outlined"] {
   --callout-border-width: 1px;
   --callout-content-background: var(--background-primary);
   --callout-content-padding: 0px var(--size-4-6);
   --callout-padding: 0px;
   --callout-title-padding: 7px 15px;
 }
-.callout-math .callout, [data-callout-metadata="math"], [data-callout="math"] {
+.callout-math .callout, [data-callout-metadata~="math"], [data-callout="math"] {
   border-width: 2px;
   border-color: rgba(var(--callout-color));
   border-radius: 0px;
@@ -2127,7 +2134,9 @@ body:not(.no-widgets) .Countdown_Item {
 .workspace-bg .workspace-split.mod-left-split, .workspace-bg .workspace-split.mod-right-split, .workspace-bg .workspace-split.mod-root .view-content, .workspace-bg .workspace-leaf.mod-active .view-header, .view-header {
   background-color: transparent;
 }
-
+.mod-active .document-search-container {
+  background-color: transparent;
+}
 
 /* @settings
 
@@ -2358,7 +2367,7 @@ settings:
         id: my-info-text
         title:
         type: info-text
-        description: 💡 You can tweak these values using theme variables (that you can define in the previous "Theme Colors" section) like **`var(--pine)`** or color values like **`#8ec7e8`** (hex) or **`rgb(142, 199, 232)`** (rgb).
+        description: 💡 You can tweak these values using theme variables (set in the previous "Theme Colors" section) like **`var(--pine)`** or color values like **`#8ec7e8`** (hex) or **`rgb(142, 199, 232)`** (rgb).
         markdown: true
     -
         id: bold-color
@@ -2586,14 +2595,14 @@ settings:
         type: class-toggle
         default: false
     -
-        id: no-click
-        title: Disable checkbox click (allows you to use checkboxes as bullets)
-        type: class-toggle
-        default: false
-    -
         id: no-checkboxes
         title: Disable checkboxes
         description: Disable this if you are using your own implementation via a CSS Snippet.
+        type: class-toggle
+        default: false
+    -
+        id: no-click
+        title: Disable checkbox click (allows you to use checkboxes as bullets)
         type: class-toggle
         default: false
     -
@@ -2625,12 +2634,12 @@ settings:
         id: my-info-text
         title:
         type: info-text
-        description: "💡 You can assign a hotkey to *Full focus mode* by going to **`Hotkeys`** (in the app settings), looking for **`Style settings: Toggle 🎯 Full focus mode`** and assigning your custom hotkey!"
+        description: "💡 You can set a hotkey for *Full focus mode* by going to **`Hotkeys`** (in the app settings), looking for **`Style settings: Toggle 🎯 Full focus mode`** and assigning your custom hotkey!"
         markdown: true
     -
         id: focus-mode
         title: 🎯 Full focus mode
-        description: Removes tab bar, status bar, scrollbar, file header and properties heading. You can toggle it with a hotkey.
+        description: Removes tab bar, status bar, scrollbar, file header and properties heading. You can enable/disable it with a hotkey.
         type: class-toggle
         default: false
         addCommand: true
@@ -2646,7 +2655,7 @@ settings:
         id: my-info-text
         title:
         type: info-text
-        description: "🎨 If you prefer a **custom background color**, you can go to *`✏️ Editor colors`* → *`Workspace background color`*. </br> You can also enable the background image setting below and reduce the background opacity in order to lower the saturation of your custom color."
+        description: "🎨 If you're looking for a custom **background color**, you can go to *`✏️ Editor colors`* → *`Workspace background color`*. </br> You can also enable the background image setting below and adjust the opacity of your custom color."
         markdown: true
     -
         id: workspace-bg
@@ -2693,7 +2702,7 @@ settings:
         level: 1
     - 
         id: kanban
-        title: Kanban board style
+        title: KANBAN board style
         type: class-select
         allowEmpty: false
         default: normal
@@ -2705,27 +2714,52 @@ settings:
                label: Modern
                value: kanban-modern
     -
+        id: dotted
+        title: Enable a dotted background for EXCALIDRAW drawings
+        type: class-toggle
+        default: false
+    -
         id: no-calendar
-        title: Disable Calendar styling
+        title: Disable CALENDAR styling
         description: Weekends are highlighted
         type: class-toggle
         default: false
     -
-        id: no-mk
-        title: Disable Make.md styling
-        description: Hides the name of the vault at the top of the file explorer
+        id: seamless-dataview
+        title: Enable seamless DATAVIEW tables
+        description: Dataview tables have the same styling as markdown tables (note that you can also use the "seamless-dataview" cssclass)
+        type: class-toggle
+        default: false
+    -
+        id: no-todoist
+        title: Disable TODOIST SYNC styling
         type: class-toggle
         default: false
     -
         id: no-widgets
-        title: Disable Widgets styling
-        description: Colorful widgets, smaller so they can also fit in a sidebar
+        title: Disable WIDGETS styling
+        description: Colorful and smaller widgets
         type: class-toggle
         default: false
     -
-        id: seamless-dataview
-        title: Enable seamless Dataview tables
-        description: Dataview tables have the same styling as markdown tables
+        id: no-pomodoro
+        title: Disable POMODORO TIMER styling
+        description: Round stroke
+        type: class-toggle
+        default: false
+    -
+        id: no-cardboard
+        title: Disable CARDBOARD styling
+        type: class-toggle
+        default: false
+    -
+        id: no-fta
+        title: Disable FILE TREE ALTERNATIVE styling
+        type: class-toggle
+        default: false
+    -
+        id: no-tokei
+        title: Disable TOKEI styling
         type: class-toggle
         default: false
 */
