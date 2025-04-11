@@ -53,7 +53,7 @@ _✨ Runner up in the Obsidian [Gems of the Year 2024](https://obsidian.md/blog/
 
 # ✨ Features
 - Custom checkboxes
-- Custom callouts: `time`, `person`, `bookmark`, `media`, and "`center`" metadata
+- Custom callouts: `time`, `person`, `bookmark`, `media` and `box` + "`center`" metadata
 - Scrollbar on hover (credit to [Border](https://github.com/Akifyss/obsidian-border) theme)
 - Active line highlight
 - Slight image animation on hover
@@ -71,7 +71,7 @@ _✨ Runner up in the Obsidian [Gems of the Year 2024](https://obsidian.md/blog/
 ![](https://github.com/Seniblue/Underwater/blob/main/img/snippets.png)
 
 [🐠 Snippets folder](https://github.com/Seniblue/Underwater/tree/main/%F0%9F%90%A0%20SNIPPETS) featuring:
-- [🌊 Minimal_cards](https://github.com/Seniblue/Underwater/blob/main/%F0%9F%90%A0%20SNIPPETS/%F0%9F%8C%8A%20Minimal_cards.css) (adapted version of [@Kepano](https://github.com/kepano)'s minimal cards.)
+- [🌊 Minimal_cards](https://github.com/Seniblue/Underwater/blob/main/%F0%9F%90%A0%20SNIPPETS/%F0%9F%8C%8A%20Minimal_cards.css) (modified version of [@Kepano](https://github.com/kepano)'s minimal cards.)
 -   [🚩 Timeline callout](https://github.com/Seniblue/Underwater/blob/main/%F0%9F%90%A0%20SNIPPETS/%F0%9F%9A%A9%20Timeline%20callout.css) (tweaked from [@FireIsGood](https://discord.com/channels/686053708261228577/702656734631821413/1156868388249935883)'s timeline callout)
 
 # 🧩 Plugins support
@@ -98,7 +98,7 @@ Credit to these themes for some elements and inspiration!
 - The Obsidian [Forum](https://forum.obsidian.md/)
 
 # Tasks
-- [x] Add more options for settings with style settings
+- [x] Add more settings with style settings
 - [x] Work on README
 - [x] Add custom color schemes
 - [x] 📱 Mobile support
