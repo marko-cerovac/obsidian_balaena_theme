@@ -868,6 +868,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .workspace-tab-header-tab-list .clickable-icon, .workspace-tab-header-new-tab .clickable-icon {
   margin-top: 5px; /*aligns new tab button with tabs*/
 }
+
 /*Mobile styling*/
 .mobile-navbar, .mobile-toolbar {
   background-color: var(--uw-background);
@@ -877,6 +878,16 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .is-mobile .workspace-tab-container {
   margin: 10px;
   border-radius: 15px;
+}
+.workspace-tab-header-container {
+  background-color: var(--uw-background);
+}
+.is-mobile, .is-tablet { 
+  --mobile-sidebar-background: var(--uw-background) !important;
+  --system-status-background: var(--uw-background);
+  .workspace-drawer-inner {
+      background-color: var(--uw-background);
+  }
 }
 
 /*Panels titlebar styling*/
@@ -1251,11 +1262,11 @@ body:not(.no-center) {
 table, .table-wrapper {
   margin-inline: auto;
 }}
-/*very hacky fix for stacked images*/
+/*very hacky fix for stacked images
 img + img, .markdown-rendered p:has(img + img) img {
   margin-inline: 0 !important;
-  display: inline !important;
-}
+  display: inline-block !important;
+}*/
 
 /*hover image animation !*/
 body:not(.no-animation) img {
