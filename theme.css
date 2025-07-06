@@ -1068,37 +1068,55 @@ th .MJX-TEX { /*no color for table headers*/
   color: var(--table-header-color);
 }
 
-/*LINKS STYLING!*/
+/*Internal links styling*/
 a:focus-within {
   box-shadow: none !important;
 }
 a, .external-link {
   transition: color 0.5s ease;
 }
-body:not(.no-links) .markdown-source-view.mod-cm6 .cm-hmd-internal-link,
-body:not(.no-links) .markdown-rendered .internal-link {
-  background-color: transparent;
-  color: var(--link-color);
-  border-radius: 7px;
+/*Modern*/
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link,
+.markdown-rendered .internal-link {
+  background-color: rgba(var(--rose-rgb), 0.1);
+  border-radius: 6px;
   padding-left: 5px;
   padding-right: 5px;
-  border: 1px solid var(--highlight-med);
   transition: background-color 0.5s ease;
   box-decoration-break: clone;
+
+  &:hover {
+      background-color: rgba(var(--rose-rgb), 0.2);
+      color: var(--link-color);
+  }
 }
-body:not(.no-links) .markdown-rendered .internal-link:hover,
-body:not(.no-links) .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover {
-  background-color: var(--highlight-med);
-  color: var(--link-color);
-}
-body:not(.no-links) .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline:hover {
-  color: var(--link-color);
-}
-.no-links .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover,
-.no-links .markdown-rendered .internal-link:hover {
-  color: var(--link-color-hover);
-  transition: color 0.3s ease-out;
-}
+
+/*Vanilla (obsidian default)*/
+.no-links {
+  .markdown-source-view.mod-cm6 .cm-hmd-internal-link,
+  .markdown-rendered .internal-link {
+    background-color: transparent;
+    padding: 0px;
+
+    &:hover {
+      color: var(--link-color-hover);
+      transition: color 0.3s ease-out;
+      background-color: transparent;
+}}}
+
+/*Boxed links*/
+.box-links {
+  .markdown-source-view.mod-cm6 .cm-hmd-internal-link,
+  .markdown-rendered .internal-link {
+    border: 1px solid var(--highlight-med);
+    background-color: transparent;
+    
+    &:hover {
+      background-color: var(--highlight-med);
+      color: var(--link-color);
+    }
+}}
+
 
 /*scrollbar - from BORDER theme*/
 ::-webkit-scrollbar {
@@ -2572,7 +2590,22 @@ settings:
             -
                label: Dev
                value: vault-dev
-
+    -
+        id: links-styling
+        title: Internal links styling
+        type: class-select
+        allowEmpty: false
+        default: normal
+        options:
+            -
+               label: Modern
+               value: normal
+            -
+               label: Boxed links
+               value: box-links
+            -
+               label: Vanilla
+               value: no-links
     -
         id: headings-font
         title: Specific font for headings
@@ -2606,11 +2639,6 @@ settings:
     -
         id: no-button
         title: Disable slight button zoom on hover
-        type: class-toggle
-        default: false
-    -
-        id: no-links
-        title: Disable border around internal links
         type: class-toggle
         default: false
     -
