@@ -768,14 +768,14 @@
 }
 
 /*-------------LAYOUT------------------*/ /* remove for default layout*/
-body:not(is-mobile) .workspace-tab-container {
+body .workspace-tab-container {
   margin: 7px 14px 14px 0px;
   border-radius: 12px;
 }
 .mod-right-split, .mod-left-split { /*right and left margins*/
   margin: 0px;
 }
-body:not(is-mobile):not(.show-ribbon) .workspace {
+body:not(.show-ribbon) .workspace {
   margin-left: 14px;
 }
 .workspace.is-left-sidedock-open {
@@ -845,6 +845,9 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
   --system-status-background: var(--uw-background);
   .workspace-drawer-inner {
       background-color: var(--uw-background);
+  }
+  .workspace-drawer, .workspace-drawer-header, .workspace-drawer-ribbon {
+    background-color: var(--uw-background);
   }
 }
 
@@ -1086,7 +1089,7 @@ a, .external-link {
   box-decoration-break: clone;
 
   &:hover {
-      background-color: rgba(var(--rose-rgb), 0.2);
+      background-color: rgba(var(--rose-rgb), 0.3);
       color: var(--link-color);
   }
 }
