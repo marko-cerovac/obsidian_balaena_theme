@@ -89,6 +89,7 @@ _✨ Runner up in the Obsidian [Gems of the Year 2024](https://obsidian.md/blog/
 - [Dataview](https://github.com/blacksmithgu/obsidian-dataview)
 - [Meta Bind](https://github.com/mProjectsCode/obsidian-meta-bind-plugin)
 - [Cardboard](https://github.com/roovo/obsidian-card-board)
+- [Task Genius](https://github.com/Quorafind/Obsidian-Task-Genius)
 
 # Credit
 Credit to these themes for some elements and inspiration!
@@ -98,7 +99,7 @@ Credit to these themes for some elements and inspiration!
 - The Obsidian [Forum](https://forum.obsidian.md/)
 
 # Tasks
-- [x] Add more settings with style settings
+- [x] Add more settings
 - [x] Work on README
 - [x] Add custom color schemes
 - [x] 📱 Mobile support
