@@ -4,7 +4,7 @@
 
 _✨ Runner up in the Obsidian [Gems of the Year 2024](https://obsidian.md/blog/2024-goty-winners/) awards!_
 
-[↪️ Theme updates](https://github.com/Seniblue/Underwater/releases)
+[↪️ Updates](https://github.com/Seniblue/Underwater/releases)
 
 ![uw](img/thumbnail.png)
 
