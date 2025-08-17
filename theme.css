@@ -1829,8 +1829,8 @@ body:not(.no-todoist) {
     font-size: var(--h3-size);
 }}
 
-/*IMPORTANT - ICONIZE v.2.12.1 fix*/
-.iconize-inline-title-wrapper {
+/*IMPORTANT - ICONIZE and ICONIC fix*/
+.iconize-inline-title-wrapper, .iconic-title-wrapper {
   justify-content: center;
 }
 
