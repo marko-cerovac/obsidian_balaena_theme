@@ -26,3 +26,4 @@
 ```
 
 My obsidian theme for personal use.
+Forked from [Seniblue/Underwater](https://github.com/Seniblue/Underwater).
