@@ -1,11 +1,9 @@
 {
-	"name": "Underwater",
-	"version": "1.6.53",
+	"name": "balaena",
+	"version": "1.0.0",
 	"minAppVersion": "1.6.3",
-	"author": "Seniblue",
-	"authorUrl": "https://github.com/Seniblue",
-	"repo": "Seniblue/Underwater",
- 	"screenshot": "uw.png",
+	"author": "marko-cerovac",
+	"authorUrl": "https://github.com/marko-cerovac",
+	"repo": "marko-cerovac/obsidian_balaena_theme",
 	"modes": ["dark", "light"]
-
 }
